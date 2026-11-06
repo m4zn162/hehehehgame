@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Jana vs. the Mochi Queen</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<style>
+:root{--bg:#ffc8e6;--fg:#3a1730;--pn:#fff5fbf2;--ac:#ff3d9a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--fg:#ffe8f4;--pn:#35182cf2}}
+:root[data-theme="dark"]{--fg:#ffe8f4;--pn:#35182cf2}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,sans-serif;overflow:hidden}
+#c{position:fixed;inset:0;width:100%;height:100%;display:block}
+#ov{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:#40102a66}
+#pn{background:var(--pn);color:var(--fg);padding:26px 32px;border-radius:18px;max-width:400px;text-align:center;box-shadow:0 10px 40px #0006}
+h1{margin:0 0 6px;font-size:28px;color:var(--ac)}p{margin:8px 0;line-height:1.45;font-size:14px}
+button{margin-top:12px;background:var(--ac);color:#fff;border:0;border-radius:12px;padding:12px 28px;font-size:17px;font-weight:700;cursor:pointer}
+#hud{position:fixed;inset:0;pointer-events:none;display:none;font:700 14px system-ui;color:#fff;text-shadow:0 1px 3px #000}
+#bn{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:min(520px,80vw);text-align:center}
+.bar{height:16px;background:#0008;border-radius:9px;overflow:hidden;margin-top:4px}.bar i{display:block;height:100%;width:100%;background:#ff3d9a}
+#pb{position:absolute;top:64px;left:50%;transform:translateX(-50%);width:min(260px,60vw)}#pb i{background:#4cd964}
+#xh{position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #000}
+#fl{position:absolute;inset:0;background:#f00;opacity:0}
+#wv{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:90vw;text-align:center;font:800 18px system-ui}
+#site{position:fixed;inset:0;overflow-y:auto;touch-action:pan-y;user-select:text;-webkit-user-select:text;--sbg:#ffd6ec;--sbg2:#fff0f8;--sfg:#3a1730;--scard:#fffffff0;background:linear-gradient(var(--sbg),var(--sbg2));color:var(--sfg);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #site{--sbg:#2a1024;--sbg2:#3a1730;--sfg:#ffe8f4;--scard:#4a2040f0}}
+:root[data-theme="dark"] #site{--sbg:#2a1024;--sbg2:#3a1730;--sfg:#ffe8f4;--scard:#4a2040f0}
+#site header{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;position:sticky;top:0;background:var(--scard);z-index:2}
+#site section{max-width:880px;margin:0 auto;padding:22px 18px}
+#site .hero{text-align:center;padding-top:44px}#site h1{font-size:44px;margin:0 0 8px}#site h2{margin:0 0 12px;color:var(--ac)}
+#site .lead{font-size:18px;line-height:1.5}#site button{margin:0}#site button.big{font-size:22px;padding:14px 40px;margin-top:10px}
+#site .opt{display:block;margin-top:14px;font-size:14px}
+#site .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+#site .card{background:var(--scard);border-radius:14px;padding:14px;box-shadow:0 4px 14px #0002}#site .card h3{margin:0 0 6px}
+#site footer{text-align:center;padding:24px}
+#cap{position:fixed;left:50%;bottom:12%;transform:translateX(-50%);width:90vw;text-align:center;color:#fff;font:800 24px system-ui;text-shadow:0 2px 6px #000;pointer-events:none}
+html,body,#c{touch-action:none;-webkit-user-select:none;user-select:none}
+#tc{position:fixed;inset:0;display:none;pointer-events:none}
+#tc>*{pointer-events:auto;position:absolute;touch-action:none}
+#js{left:24px;bottom:40px;width:150px;height:150px;border-radius:50%;background:#ffffff77;border:3px solid #fff;box-shadow:0 0 0 2px #ff3d9a,0 4px 14px #0005}
+#js:after{content:'MOVE';position:absolute;left:0;right:0;bottom:-22px;text-align:center;font:800 12px system-ui;color:#fff;text-shadow:0 1px 3px #000}
+#kn{position:absolute;left:40px;top:40px;width:70px;height:70px;border-radius:50%;background:#ff3d9a;border:3px solid #fff;pointer-events:none}
+.tb{border-radius:50%;background:#ff3d9aee;border:3px solid #fff;color:#fff;font:800 15px system-ui;display:flex;align-items:center;justify-content:center;text-shadow:0 1px 3px #000;box-shadow:0 4px 14px #0005;user-select:none}
+#bf{right:24px;bottom:34px;width:112px;height:112px}#bj{right:150px;bottom:38px;width:78px;height:78px}#bd{right:44px;bottom:160px;width:78px;height:78px}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="hud"><div id="fl"></div><div id="bn">👑 Queen Mochi<div class="bar"><i id="bb"></i></div></div><div id="wv"></div><div id="xh"></div><div id="pb">Jana<div class="bar"><i id="pbi"></i></div></div></div>
+<div id="cap"></div>
+<div id="tc"><div id="js"><div id="kn"></div></div><div class="tb" id="bf">FIRE</div><div class="tb" id="bj">JUMP</div><div class="tb" id="bd">DASH</div></div>
+<div id='site'><header><b>💖 Jana vs. the Mochi Queen</b><button class='playbtn'>Play</button></header>
+<section class='hero'><h1>Save Mazen!</h1><p class='lead'>A 3D boss-fight adventure. Fight through three dungeon rooms of mini Mochi kittens, then face the giant Mochi Queen with Jana’s pink blaster.</p>
+<button class='playbtn big'>▶ Play now</button><label class='opt'><input type='checkbox' id='tcOpt' checked> Show on-screen touch controls</label></section>
+<section><h2>How to play</h2><div class='grid'><div class='card'><h3>🖥️ Computer</h3><p><b>WASD</b> move · <b>Mouse</b> aim · <b>Click</b> shoot<br><b>Space</b> jump · <b>Shift</b> dash</p></div><div class='card'><h3>📱 Phone or tablet</h3><p>Left stick moves, drag the right side of the screen to aim, and tap FIRE, JUMP and DASH. Landscape works best.</p></div></div></section>
+<section><h2>Meet the cast</h2><div class='grid'><div class='card'><h3>👧 Jana</h3><p>Brave hero with a pink blaster and long straight hair.</p></div><div class='card'><h3>🧒 Mazen</h3><p>Kidnapped and waiting in a golden cage. He needs a rescue (and a hug).</p></div><div class='card'><h3>🐱 Queen Mochi</h3><p>A giant crowned cat boss with orb volleys, spin sprays and shockwave slams.</p></div><div class='card'><h3>😺 Mini Mochis</h3><p>Chasers, orb-shooting kittens and a crowned captain.</p></div></div></section>
+<section><h2>The dungeon</h2><p>Clear <b>3 rooms</b> of kittens (each room is tougher and heals you a little), then beat the Mochi Queen to free Mazen.</p></section>
+<footer><button class='playbtn big'>▶ Play now</button><p>Made with Claude</p></footer></div>
+<div id="ov"><div id="pn"><h1 id="t">Jana vs. the Mochi Queen</h1>
+<p id="s">Mazen has been kidnapped by the giant Mochi Queen! Fight through 3 dungeon rooms of mini Mochi kittens, then face the Queen herself.</p>
+<p><b>WASD</b> move · <b>Mouse</b> aim (click the game to capture it, arrow keys also turn)<br><b>Hold click</b> shoot · <b>Space</b> jump over shockwaves · <b>Shift</b> dash (brief invincibility)<br><b>On a phone:</b> left stick moves, drag the right side of the screen to aim, and use the FIRE / JUMP / DASH buttons (landscape works best).</p>
+<button id="b">Start</button> <button id="home" style="background:#8a93a3">Home</button></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const $=id=>document.getElementById(id),cv=$('c'),PI=Math.PI,R=Math.random,rr=(a,b)=>a+R()*(b-a),V=(x,y,z)=>new THREE.Vector3(x,y,z);
+const rd=new THREE.WebGLRenderer({canvas:cv,antialias:true}),sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(65,1,.1,400);
+sc.background=new THREE.Color(0xffc8e6);sc.fog=new THREE.Fog(0xffc8e6,45,150);
+sc.add(new THREE.HemisphereLight(0xffffff,0xffb6d9,1));const dl=new THREE.DirectionalLight(0xffffff,.6);dl.position.set(30,60,20);sc.add(dl);
+function rs(){rd.setPixelRatio(Math.min(devicePixelRatio,2));rd.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()}addEventListener('resize',rs);rs();
+const M=c=>new THREE.MeshLambertMaterial({color:c}),mesh=(g,c,x=0,y=0,z=0)=>{const m=new THREE.Mesh(g,M(c));m.position.set(x,y,z);return m};
+function label(t,c){const cn=document.createElement('canvas');cn.width=256;cn.height=64;const x=cn.getContext('2d');x.font='bold 34px system-ui';x.textAlign='center';x.fillStyle=c;x.strokeStyle='#fff';x.lineWidth=6;x.strokeText(t,128,44);x.fillText(t,128,44);
+ const s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(cn),depthTest:false}));s.scale.set(4,1,1);return s}
+// arena
+const fl=mesh(new THREE.CircleGeometry(42,56),0xffe3f1);fl.rotation.x=-PI/2;sc.add(fl);
+const out=mesh(new THREE.CircleGeometry(300,32),0xffb3d9,0,-.05,0);out.rotation.x=-PI/2;sc.add(out);
+for(const[r,c]of[[12,0xff9ccf],[26,0xffc2e0],[40,0xff7fbf]]){const m=mesh(new THREE.RingGeometry(r-.6,r,56),c,0,.02,0);m.rotation.x=-PI/2;sc.add(m)}
+for(let i=0;i<12;i++){const a=i/12*PI*2,x=Math.cos(a)*43,z=Math.sin(a)*43;sc.add(mesh(new THREE.CylinderGeometry(1.2,1.4,7,10),0xffffff,x,3.5,z));sc.add(mesh(new THREE.SphereGeometry(1.5,12,10),[0xff5fae,0x7ad7ff,0xffe14d][i%3],x,8,z))}
+for(let i=0;i<14;i++){const a=rr(0,PI*2),d=rr(50,110);sc.add(mesh(new THREE.SphereGeometry(rr(2,4),12,10),[0xff9ccf,0xb8e6ff,0xfff1a8][i%3],Math.cos(a)*d,rr(6,20),Math.sin(a)*d))}
+// Jana
+const jan=new THREE.Group();
+jan.add(mesh(new THREE.CylinderGeometry(.25,.6,.9,12),0xff5fae,0,.85,0),mesh(new THREE.CylinderGeometry(.22,.26,.45,12),0xff8cc6,0,1.5,0),
+ mesh(new THREE.CylinderGeometry(.07,.07,.55,8),0xf2c9a0,-.13,.28,0),mesh(new THREE.CylinderGeometry(.07,.07,.55,8),0xf2c9a0,.13,.28,0),
+ mesh(new THREE.SphereGeometry(.26,14,12),0xf2c9a0,0,1.95,0),mesh(new THREE.SphereGeometry(.29,14,12),0x4a2a1a,0,2,-.06),(()=>{const h=mesh(new THREE.CylinderGeometry(.3,.27,.75,16),0x4a2a1a,0,1.68,-.13);h.scale.z=.55;return h})(),
+ mesh(new THREE.SphereGeometry(.1,8,8),0xff3d9a,.2,2.2,0),mesh(new THREE.SphereGeometry(.035,6,6),0x111111,-.09,1.97,.24),mesh(new THREE.SphereGeometry(.035,6,6),0x111111,.09,1.97,.24),
+ mesh(new THREE.CylinderGeometry(.06,.06,.6,8),0xf2c9a0,-.3,1.5,0));
+const arm=mesh(new THREE.CylinderGeometry(.06,.06,.6,8),0xf2c9a0,.28,1.5,.28);arm.rotation.x=PI/2;jan.add(arm);
+const gun=new THREE.Group();gun.position.set(.28,1.55,.7);
+gun.add(mesh(new THREE.BoxGeometry(.14,.22,.55),0xff3d9a),mesh(new THREE.BoxGeometry(.1,.2,.14),0xff8cc6,0,-.18,-.12),mesh(new THREE.CylinderGeometry(.04,.04,.3,8),0xffd1e8,0,.03,.4),mesh(new THREE.SphereGeometry(.07,8,8),0xffe14d,0,.14,0));
+gun.children[3].rotation.x=PI/2;jan.add(gun);sc.add(jan);
+// Queen Mochi (original cat boss)
+const boss=new THREE.Group(),W=0xffffff;
+boss.add(mesh(new THREE.SphereGeometry(3.4,24,18),W,0,3.4,0),mesh(new THREE.SphereGeometry(3.3,24,18),W,0,7,0),
+ mesh(new THREE.ConeGeometry(1.3,2.6,4),W,-2.3,9.8,0),mesh(new THREE.ConeGeometry(1.3,2.6,4),W,2.3,9.8,0),mesh(new THREE.ConeGeometry(.7,1.6,4),0xff9ccf,-2.3,9.6,.4),mesh(new THREE.ConeGeometry(.7,1.6,4),0xff9ccf,2.3,9.6,.4),
+ mesh(new THREE.SphereGeometry(.45,10,8),0x222222,-1.4,7.4,3.05),mesh(new THREE.SphereGeometry(.45,10,8),0x222222,1.4,7.4,3.05),mesh(new THREE.SphereGeometry(.4,10,8),0xffd23f,0,6.6,3.3),
+ mesh(new THREE.SphereGeometry(1,12,10),W,-3.3,3.2,1.5),mesh(new THREE.SphereGeometry(1,12,10),W,3.3,3.2,1.5),mesh(new THREE.ConeGeometry(1.3,1.4,5),0xffd23f,0,10.4,0),mesh(new THREE.SphereGeometry(.7,8,8),0x4aa3ff,0,5.2,3.2));
+for(const s of[-1,1])for(let i=0;i<3;i++){const w=mesh(new THREE.CylinderGeometry(.06,.06,2.2,6),0x333333,s*3.6,6.5+i*.45-.45,2.5);w.rotation.z=PI/2+s*(i-1)*.25;boss.add(w)}
+const bl=label('Queen Mochi','#ff3d9a');bl.position.y=13;bl.scale.set(6,1.5,1);boss.add(bl);sc.add(boss);
+// Mazen in a cage
+const cage=new THREE.Group(),mz=new THREE.Group();
+mz.add(mesh(new THREE.CylinderGeometry(.3,.35,.9,10),0x3a7bff,0,.9,0),mesh(new THREE.SphereGeometry(.28,12,10),0xf2c9a0,0,1.6,0),mesh(new THREE.SphereGeometry(.3,12,10),0x2a1a12,0,1.7,-.05),mesh(new THREE.CylinderGeometry(.09,.09,.6,8),0x2a2a4a,-.14,.3,0),mesh(new THREE.CylinderGeometry(.09,.09,.6,8),0x2a2a4a,.14,.3,0));
+const ml=label('Mazen','#2a6bff');ml.position.y=3.4;mz.add(ml);
+for(let i=0;i<10;i++){const a=i/10*PI*2;cage.add(mesh(new THREE.CylinderGeometry(.06,.06,3.2,6),0xffd23f,Math.cos(a)*1.5,1.6,Math.sin(a)*1.5))}
+cage.add(mesh(new THREE.CylinderGeometry(1.6,1.6,.15,16),0xffd23f,0,3.2,0),mesh(new THREE.CylinderGeometry(1.6,1.6,.15,16),0xffd23f,0,.08,0));
+const MZ=V(0,0,-36);mz.position.copy(MZ);cage.position.copy(MZ);sc.add(mz,cage);
+// state
+const keys={},mouse={l:0},bG=new THREE.SphereGeometry(.22,8,8),bM=new THREE.MeshBasicMaterial({color:0xff3d9a}),oG=new THREE.SphereGeometry(.5,10,8),oM=new THREE.MeshBasicMaterial({color:0x9a4dff}),rG=new THREE.RingGeometry(.94,1,64),rM=new THREE.MeshBasicMaterial({color:0xff2d3d,side:THREE.DoubleSide,transparent:true,opacity:.8});
+let state='menu',P,B,yaw=PI,pitch=.2,bul=[],orb=[],rings=[],t0=0,wt=0;
+function reset(){for(const a of[...bul,...orb,...rings])sc.remove(a.m);bul=[];orb=[];rings=[];P={x:0,z:22,y:0,vy:0,vx:0,vz:0,hp:100,inv:0,dash:0,dc:0,sc:0,dx:0,dz:0};
+ B={hp:300,max:300,t:2,at:null,ta:0,sub:0,fl:0,x:0,z:-16,ang:0};boss.visible=true;boss.scale.set(1,1,1);cage.position.copy(MZ);cage.visible=true;mz.position.copy(MZ);yaw=PI;pitch=.2;wt=0;gun.visible=arm.visible=true;jan.children[10].visible=true;hugJ.visible=hugM.visible=false;mz.rotation.y=0;for(const h of hearts)sc.remove(h.s);hearts=[];$('cap').textContent='';initWaves()}
+function hurt(n){if(P.inv>0||P.dash>0||state!='play')return;P.hp-=n;P.inv=.9;$('fl').style.opacity=.45;if(P.hp<=0)finish(0)}
+function finish(win){state=win?'win':'lose';wt=0;if(win){WIN={jx:P.x,jz:P.z};$('hud').style.display='none';$('tc').style.display='none'}if(!win){show('Oh no!','Jana was knocked out. Mazen is still waiting.','Try again')}document.exitPointerLock&&document.exitPointerLock()}
+function show(t,s,b){$('t').textContent=t;$('s').textContent=s;$('b').textContent=b;$('ov').style.display='flex';$('hud').style.display='none';$('tc').style.display='none'}
+function orbSpawn(x,y,z,dx,dy,dz,sp){const m=new THREE.Mesh(oG,oM);m.position.set(x,y,z);sc.add(m);orb.push({m,v:V(dx,dy,dz).normalize().multiplyScalar(sp),life:7})}
+function bossAI(dt){const bx=B.x,bz=B.z,tx=P.x-bx,tz=P.z-bz,ph2=B.hp<B.max/2;
+ B.x=Math.sin(t0*.4)*10;B.z=-16+Math.cos(t0*.3)*4;B.ang=Math.atan2(tx,tz);
+ if(!B.at){B.t-=dt;if(B.t<=0){B.at=['orbs','spin','slam'][Math.floor(R()*3)];B.ta=B.at=='orbs'?2.4:B.at=='spin'?2.6:1.6;B.sub=0;B.done=0}return 0}
+ B.ta-=dt;B.sub-=dt;let by=0;
+ if(B.at=='orbs'&&B.sub<=0){B.sub=.7;const n=ph2?7:5,b0=Math.atan2(P.x-B.x,P.z-B.z);for(let i=0;i<n;i++){const a=b0+(i-(n-1)/2)*.22;orbSpawn(B.x,4.5,B.z,Math.sin(a),0,Math.cos(a),14)}}
+ if(B.at=='spin'&&B.sub<=0){B.sub=ph2?.06:.09;B.spin=(B.spin||0)+.55;orbSpawn(B.x,2.2,B.z,Math.sin(B.spin),0,Math.cos(B.spin),11)}
+ if(B.at=='slam'){by=B.ta>.5?Math.min(6,(1.6-B.ta)*9):Math.max(0,(B.ta)*12);if(B.ta<=.5&&!B.done){B.done=1;const m=new THREE.Mesh(rG,rM);m.rotation.x=-PI/2;m.position.set(B.x,.1,B.z);sc.add(m);rings.push({m,r:3,x:B.x,z:B.z})}}
+ if(B.ta<=0){B.at=null;B.t=ph2?1:2}return by}
+function upd(dt){t0+=dt;const k=keys,f=(k.w|0)-(k.s|0)-JY,r=(k.d|0)-(k.a|0)+JX,sy=Math.sin(yaw),cy=Math.cos(yaw);
+ let wx=sy*f-cy*r,wz=cy*f+sy*r;const l=Math.hypot(wx,wz);if(l>1){wx/=l;wz/=l}
+ P.inv-=dt;P.dc-=dt;P.dash-=dt;P.sc-=dt;$('fl').style.opacity=Math.max(0,+$('fl').style.opacity-dt*1.5);
+ if(k.shift&&P.dc<=0&&l>0){P.dash=.2;P.dc=1;P.dx=wx;P.dz=wz}
+ if(P.dash>0){P.vx=P.dx*17;P.vz=P.dz*17}else{P.vx+=(wx*7-P.vx)*Math.min(1,dt*12);P.vz+=(wz*7-P.vz)*Math.min(1,dt*12)}
+ P.x+=P.vx*dt;P.z+=P.vz*dt;const rad=Math.hypot(P.x,P.z);if(rad>39){P.x*=39/rad;P.z*=39/rad}
+ const bd=Math.hypot(P.x-B.x,P.z-B.z);if(stage!='wave'&&stage!='rest'&&bd<5){P.x=B.x+(P.x-B.x)/bd*5;P.z=B.z+(P.z-B.z)/bd*5}
+ if(k.space&&P.y<=0)P.vy=9;P.vy-=25*dt;P.y=Math.max(0,P.y+P.vy*dt);if(P.y==0&&P.vy<0)P.vy=0;
+ const by=stage=='boss'?bossAI(dt):0;if(stage=='boss'){boss.position.set(B.x,by,B.z);boss.rotation.y=B.ang}
+ // shoot
+ if(mouse.l&&P.sc<=0){P.sc=.15;const mp=gun.localToWorld(V(0,.03,.6)),tg=cam.position.clone().addScaledVector(fw,80),d=tg.sub(mp).normalize();
+  const m=new THREE.Mesh(bG,bM);m.position.copy(mp);sc.add(m);bul.push({m,v:d.multiplyScalar(48),life:1.6})}
+ for(let i=bul.length-1;i>=0;i--){const b=bul[i];b.m.position.addScaledVector(b.v,dt);b.life-=dt;const p=b.m.position;
+  if(stage=='boss'&&p.distanceTo(V(B.x,by+5,B.z))<4.6){B.hp-=4;B.flash=.08;b.life=0}if(hitMinion(p))b.life=0;if(b.life<=0||p.y<0){sc.remove(b.m);bul.splice(i,1)}}
+ for(let i=orb.length-1;i>=0;i--){const o=orb[i];o.m.position.addScaledVector(o.v,dt);o.life-=dt;if(o.m.position.distanceTo(V(P.x,P.y+1,P.z))<1){hurt(10);o.life=0}if(o.life<=0||Math.hypot(o.m.position.x,o.m.position.z)>60){sc.remove(o.m);orb.splice(i,1)}}
+ for(let i=rings.length-1;i>=0;i--){const g=rings[i];g.r+=17*dt;g.m.scale.set(g.r,g.r,1);const d=Math.hypot(P.x-g.x,P.z-g.z);if(Math.abs(d-g.r)<1.3&&P.y<.9)hurt(20);if(g.r>46){sc.remove(g.m);rings.splice(i,1)}}
+ waveUpd(dt);B.flash-=dt;boss.children[1].material.color.setHex(B.flash>0?0xffb0d0:0xffffff);
+ if(stage=='boss'&&B.hp<=0){B.hp=0;for(const a of[...orb,...rings])sc.remove(a.m);orb=[];rings=[];finish(1)}
+ $('bb').style.width=B.hp/B.max*100+'%';$('pbi').style.width=Math.max(0,P.hp)+'%'}
+function winAnim(dt){wt+=dt;boss.scale.multiplyScalar(Math.max(.9,1-dt*2));if(wt>1.2)boss.visible=false;winScene(dt)
+ if(wt>9.5&&$('ov').style.display!='flex')show('You saved Mazen! 💖','Jana beat the Mochi Queen, rescued Mazen, and they shared a big hug. The end!','Play again')}
+// ===== dungeon waves: 3 rooms of mini Mochi kittens, then the boss
+const WAVES=[{c:5,s:0,b:0},{c:4,s:2,b:0},{c:5,s:3,b:1}],ROOM=[0xffc8e6,0xd9b8ff,0x9fa8ff,0xffa0b8];
+let stage='rest',minions=[],WS={n:0,t:1.8};
+function setRoom(i){const c=new THREE.Color(ROOM[i]);sc.background=c;sc.fog.color=c}
+function initWaves(){for(const m of minions)sc.remove(m.g);minions=[];stage='rest';WS={n:0,t:1.8};boss.visible=false;setRoom(0);$('cap').textContent='Enter the dungeon!'}
+function mkMini(t){const w=0xffffff,g=new THREE.Group(),big=t=='b',s=big?1.6:1;
+ g.add(mesh(new THREE.SphereGeometry(.55,12,10),w,0,.55,0),mesh(new THREE.SphereGeometry(.6,12,10),w,0,1.3,0),mesh(new THREE.ConeGeometry(.22,.5,4),w,-.35,1.8,0),mesh(new THREE.ConeGeometry(.22,.5,4),w,.35,1.8,0),
+  mesh(new THREE.SphereGeometry(.07,6,6),0x222222,-.22,1.38,.55),mesh(new THREE.SphereGeometry(.07,6,6),0x222222,.22,1.38,.55),mesh(new THREE.SphereGeometry(.08,6,6),0xffd23f,0,1.22,.6));
+ if(big)g.add(mesh(new THREE.ConeGeometry(.3,.4,5),0xffd23f,0,2.1,0));if(t=='s')g.add(mesh(new THREE.SphereGeometry(.2,8,8),0x9a4dff,.38,1.8,0));
+ g.scale.set(s,s,s);sc.add(g);return g}
+function spawnWave(i){const d=WAVES[i],list=[];for(let k=0;k<d.c;k++)list.push('c');for(let k=0;k<d.s;k++)list.push('s');for(let k=0;k<d.b;k++)list.push('b');
+ list.forEach((t,k)=>{const a=k/list.length*PI*2+rr(0,.5),r=rr(16,28);minions.push({g:mkMini(t),t,x:Math.cos(a)*r,z:Math.sin(a)*r-6,y:rr(8,14),vy:0,hp:t=='b'?40:12,r:t=='b'?1.5:.9,cd:rr(.5,1.5),fl:0})})}
+function hitMinion(p){for(let i=minions.length-1;i>=0;i--){const m=minions[i];if(p.distanceTo(V(m.x,m.y+(m.t=='b'?1.4:.9),m.z))<m.r+.35){m.hp-=4;m.fl=.1;if(m.hp<=0){sc.remove(m.g);minions.splice(i,1)}return true}}return false}
+function minionAI(m,dt){m.vy-=25*dt;m.y=Math.max(0,m.y+m.vy*dt);if(m.y==0)m.vy=0;m.cd-=dt;m.fl-=dt;
+ const dx=P.x-m.x,dz=P.z-m.z,d=Math.hypot(dx,dz)||1;
+ if(m.y<=0){let sp=m.t=='b'?3:m.t=='s'?0:4.2;if(m.t=='s'){if(d<10)sp=-3;else if(d>16)sp=3}
+  m.x+=dx/d*sp*dt;m.z+=dz/d*sp*dt;if(m.t!='s'&&d<m.r+.9&&m.cd<=0){hurt(m.t=='b'?15:8);m.cd=1}
+  if(m.t=='s'&&m.cd<=0&&d<28){m.cd=2;orbSpawn(m.x,1.4,m.z,dx,P.y-.2,dz,9)}}
+ for(const o of minions)if(o!==m){const ex=m.x-o.x,ez=m.z-o.z,e=Math.hypot(ex,ez);if(e<1.3&&e>0){m.x+=ex/e*.04;m.z+=ez/e*.04}}
+ const rad=Math.hypot(m.x,m.z);if(rad>38){m.x*=38/rad;m.z*=38/rad}
+ m.g.position.set(m.x,m.y,m.z);m.g.rotation.y=Math.atan2(dx,dz);m.g.children[0].material.color.setHex(m.fl>0?0xff9ccf:0xffffff)}
+function waveUpd(dt){const wv=$('wv');wv.style.display=stage=='boss'?'none':'block';$('bn').style.display=stage=='boss'?'block':'none';if(stage=='boss')return;
+ for(const m of minions)minionAI(m,dt);
+ if(stage=='wave'){wv.innerHTML='Dungeon Room '+WS.n+'/3<br>Kittens left: '+minions.length;
+  if(!minions.length){if(WS.n>=3){stage='intro';WS.t=2.6;boss.visible=true;boss.scale.set(.1,.1,.1);boss.position.set(0,0,-16);B.x=0;B.z=-16;$('cap').textContent='The Mochi Queen appears!';setRoom(3)}
+   else{stage='rest';WS.t=3;P.hp=Math.min(100,P.hp+25);$('cap').textContent='Room '+WS.n+' cleared! +25 health'}}}
+ else if(stage=='rest'){wv.innerHTML='Next room in '+Math.ceil(WS.t);WS.t-=dt;if(WS.t<=0){$('cap').textContent='';setRoom(WS.n);spawnWave(WS.n++);stage='wave'}}
+ else if(stage=='intro'){wv.innerHTML='';WS.t-=dt;boss.scale.setScalar(.1+.9*Math.min(1,1-WS.t/2.6));if(WS.t<=0){stage='boss';B.t=1.2;$('cap').textContent=''}}}
+// ===== ending cutscene: Mazen is freed, runs to Jana, and they hug
+const lerp=(a,b,t)=>a+(b-a)*t;let WIN={},hearts=[],hAcc=0;
+const mkArms=(col,y)=>{const g=new THREE.Group();for(const s of[-1,1]){const p=new THREE.Group();p.position.set(s*.3,y,.1);p.rotation.y=-s*.55;const a=mesh(new THREE.CylinderGeometry(.065,.065,.7,8),col,0,0,.35);a.rotation.x=PI/2;p.add(a);g.add(p)}g.visible=false;return g};
+const hugJ=mkArms(0xf2c9a0,1.45),hugM=mkArms(0x3a7bff,1.1);jan.add(hugJ);mz.add(hugM);
+const heartTex=(()=>{const c=document.createElement('canvas');c.width=c.height=64;const x=c.getContext('2d');x.font='48px serif';x.textAlign='center';x.textBaseline='middle';x.fillText('💖',32,34);return new THREE.CanvasTexture(c)})();
+function heart(x,y,z){const s=new THREE.Sprite(new THREE.SpriteMaterial({map:heartTex,transparent:true,depthTest:false}));s.position.set(x,y,z);s.scale.set(.8,.8,1);sc.add(s);hearts.push({s,life:2.2,vx:rr(-.4,.4),vz:rr(-.4,.4)})}
+function winScene(dt){const jx=WIN.jx,jz=WIN.jz,mx=MZ.x,mz0=MZ.z,cx=(jx+mx)/2,cz=(jz+mz0)/2,ang=Math.atan2(mx-jx,mz0-jz),ux=Math.sin(ang),uz=Math.cos(ang);WIN.cx=cx;WIN.cz=cz;
+ if(wt>1&&wt<3)cage.position.y+=dt*9;if(wt>=3)cage.visible=false;
+ const k=Math.min(1,Math.max(0,(wt-2)/2.6)),e=k*k*(3-2*k),g=.42,run=wt>2&&k<1;
+ jan.visible=true;jan.position.set(lerp(jx,cx-ux*g,e),run?Math.abs(Math.sin(wt*11))*.1:0,lerp(jz,cz-uz*g,e));jan.rotation.y=ang;
+ mz.position.set(lerp(mx,cx+ux*g,e),run?Math.abs(Math.sin(wt*11+1))*.12:0,lerp(mz0,cz+uz*g,e));mz.rotation.y=wt>2?ang+PI:0;
+ if(wt>4.6){hugJ.visible=hugM.visible=true;gun.visible=arm.visible=false;jan.children[10].visible=false;const s=Math.sin(wt*3)*.04;jan.position.y=s+.04;mz.position.y=-s+.04;hAcc+=dt;if(hAcc>.22){hAcc=0;heart(cx+rr(-.4,.4),2.2,cz+rr(-.4,.4))}}
+ for(let i=hearts.length-1;i>=0;i--){const h=hearts[i];h.life-=dt;h.s.position.y+=dt*1.1;h.s.position.x+=h.vx*dt;h.s.position.z+=h.vz*dt;h.s.material.opacity=Math.min(1,h.life);if(h.life<=0){sc.remove(h.s);hearts.splice(i,1)}}
+ $('cap').textContent=wt>6.8?'The end 💖':wt>4.6?'Mazen: Thank you, Jana!':wt>2?'Mazen is free!':''}
+function winCam(dt){const a=wt*.35+PI,d=lerp(9,5.5,Math.min(1,(wt-2.2)/2)),tg=V(WIN.cx+Math.cos(a)*d,2.4,WIN.cz+Math.sin(a)*d);if(!WIN.c)WIN.c=cam.position.clone();WIN.c.lerp(tg,Math.min(1,dt*2.5));cam.position.copy(WIN.c);cam.lookAt(WIN.cx,1.4,WIN.cz)}
+let fw=V(0,0,-1),last=0;
+function frame(ts){const dt=Math.min(.05,(ts-last)/1000||0);last=ts;
+ yaw+=((keys.arrowleft|0)-(keys.arrowright|0))*dt*2.3;pitch=Math.max(-.5,Math.min(.9,pitch+((keys.arrowup|0)-(keys.arrowdown|0))*dt*1.5));
+ if(state=='play')upd(dt);else if(state=='win')winAnim(dt);else t0+=dt*.2;
+ const cp=Math.cos(pitch),sy=Math.sin(yaw),cy=Math.cos(yaw);fw=V(sy*cp,Math.sin(pitch),cy*cp);const rt=V(-cy,0,sy),pv=V(P?P.x:0,(P?P.y:0)+1.7,P?P.z:22);
+ const cpos=pv.clone().addScaledVector(fw,-6.5).addScaledVector(rt,1);cpos.y=Math.max(.6,cpos.y);cam.position.copy(cpos);cam.lookAt(cpos.clone().add(fw));if(state=='win'&&wt>2.2)winCam(dt);
+ if(P&&state!='win'){jan.position.set(P.x,P.y,P.z);jan.rotation.y=yaw;jan.visible=P.inv<=0||Math.floor(t0*20)%2==0}
+ if(state=='menu'||!P){boss.position.set(0,0,-16);boss.rotation.y=Math.sin(t0)*.3}
+ mz.position.y=state=='win'?mz.position.y:0;rd.render(sc,cam);requestAnimationFrame(frame)}
+function start(){reset();state='play';$('ov').style.display='none';$('hud').style.display='block';$('tc').style.display=$('tcOpt').checked?'block':'none';$('site').style.display='none';try{cv.requestPointerLock()}catch(e){}}
+$('b').onclick=start;document.querySelectorAll('.playbtn').forEach(b=>b.onclick=start);
+$('home').onclick=()=>{state='menu';$('ov').style.display='none';$('hud').style.display='none';$('tc').style.display='none';$('cap').textContent='';$('site').style.display='block';$('site').scrollTop=0};
+addEventListener('keydown',e=>{keys[e.code=='Space'?'space':e.key.toLowerCase()]=1;if(e.code=='Space')e.preventDefault();if(e.key=='Enter'&&state!='play'&&state!='win')start()});
+addEventListener('keyup',e=>keys[e.code=='Space'?'space':e.key.toLowerCase()]=0);
+addEventListener('mousemove',e=>{if(document.pointerLockElement===cv){yaw-=e.movementX*.0032;pitch=Math.max(-.5,Math.min(.9,pitch-e.movementY*.003))}});
+cv.addEventListener('mousedown',e=>{if(state=='play'&&document.pointerLockElement!==cv)try{cv.requestPointerLock()}catch(x){}mouse.l=1});
+addEventListener('mouseup',()=>mouse.l=0);cv.addEventListener('contextmenu',e=>e.preventDefault());
+// ===== touch controls (mobile)
+const touch=('ontouchstart' in window)||navigator.maxTouchPoints>0;let JX=0,JY=0,jid=null,lid=null,lx=0,ly=0;
+function mv(t){const r=$('js').getBoundingClientRect(),dx=t.clientX-(r.left+r.width/2),dy=t.clientY-(r.top+r.height/2),d=Math.hypot(dx,dy),m=Math.min(d,50)/(d||1);$('kn').style.transform='translate('+dx*m+'px,'+dy*m+'px)';JX=dx*m/50;JY=dy*m/50}
+$('js').addEventListener('touchstart',e=>{e.preventDefault();jid=e.changedTouches[0].identifier;mv(e.changedTouches[0])},{passive:false});
+cv.addEventListener('touchstart',e=>{e.preventDefault();if(lid===null){const t=e.changedTouches[0];lid=t.identifier;lx=t.clientX;ly=t.clientY}},{passive:false});
+addEventListener('touchmove',e=>{for(const t of e.changedTouches){if(t.identifier===jid)mv(t);else if(t.identifier===lid){yaw-=(t.clientX-lx)*.006;pitch=Math.max(-.5,Math.min(.9,pitch-(t.clientY-ly)*.005));lx=t.clientX;ly=t.clientY}}},{passive:false});
+function tEnd(e){for(const t of e.changedTouches){if(t.identifier===jid){jid=null;JX=JY=0;$('kn').style.transform='translate(0,0)'}if(t.identifier===lid)lid=null}}
+addEventListener('touchend',tEnd);addEventListener('touchcancel',tEnd);
+function hold(id,on,off){const el=$(id);el.addEventListener('touchstart',e=>{e.preventDefault();on()},{passive:false});['touchend','touchcancel'].forEach(n=>el.addEventListener(n,e=>{e.preventDefault();off()}));el.addEventListener('mousedown',e=>{e.stopPropagation();on()});['mouseup','mouseleave'].forEach(n=>el.addEventListener(n,off))}
+hold('bf',()=>mouse.l=1,()=>mouse.l=0);hold('bj',()=>keys.space=1,()=>keys.space=0);hold('bd',()=>keys.shift=1,()=>keys.shift=0);
+let jm=false;$('js').addEventListener('mousedown',e=>{jm=true;mv(e)});addEventListener('mousemove',e=>{if(jm)mv(e)});addEventListener('mouseup',()=>{if(jm){jm=false;JX=JY=0;$('kn').style.transform='translate(0,0)'}});
+requestAnimationFrame(frame);
+</script></body></html>
